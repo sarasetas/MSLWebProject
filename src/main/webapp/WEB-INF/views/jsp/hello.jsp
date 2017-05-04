@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Maven + Spring MVC</title>
+<title>Page</title>
  
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
@@ -14,7 +14,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Spring 3 MVC Project</a>
+		<a class="navbar-brand" href="#">MSL Web Project</a>
 	</div>
   </div>
 </nav>
@@ -32,7 +32,7 @@
 		</c:if>
     </p>
     <p>
-		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		<a class="btn btn-primary btn-lg" href="#" role="button">Consultar</a>
 	</p>
 	</div>
 </div>
@@ -66,7 +66,7 @@
  
   <hr>
   <footer>
-	<p>&copy; Mkyong.com 2015</p>
+	<p>&copy; 2017 MSL</p>
   </footer>
 </div>
  
