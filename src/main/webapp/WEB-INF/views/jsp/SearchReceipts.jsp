@@ -7,6 +7,6 @@
 <title>SearchReceipts</title>
 </head>
 <body>
-<h1>CENAS!	</h1>
+<h1>CENAS! e mais cenas/h1>
 </body>
 </html>
