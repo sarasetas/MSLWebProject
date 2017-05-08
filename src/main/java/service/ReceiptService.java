@@ -1,5 +1,8 @@
 package service;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -34,7 +37,17 @@ public class ReceiptService {
 	{
 		receiptBo.update(receipt);
 	}
-
+	
+	public List<Receipt> findReceiptByCrit(DetachedCriteria crit)
+	{
+		List<Receipt> receiptList = receiptBo.findByCriteria(crit);
+		
+		/** Can only return 1 receipt from the search**/
+		if (receiptList.isEmpty()) 
+			return null;
+		else
+			return receiptList;		
+	}
 	
 	 /* Flush and Clear session for batch process
 	 */

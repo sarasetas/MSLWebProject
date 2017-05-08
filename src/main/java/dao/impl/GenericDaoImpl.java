@@ -4,10 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
@@ -48,7 +47,7 @@ public class GenericDaoImpl <T, PK extends Serializable>
 	public GenericDaoImpl(Class<T> type) {
 		this.setType(type);
 	}
-	
+		
 	@Override
 	public void save(T object) {
 		getHibernateTemplate().save(object);

@@ -1,5 +1,9 @@
 package operation;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,5 +27,15 @@ public class ReceiptOperation {
 	
 	public void updateReceipt (Receipt receipt){
 		receiptService.updateReceipt(receipt);
+	}
+	
+	public List<Receipt> listReceipts (){
+
+		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(Receipt.class)
+				.addOrder(Order.asc("receiptSequence"));
+				
+		List<Receipt> listReceipts = receiptService.findReceiptByCrit(crit);
+		
+		return listReceipts;
 	}
 }

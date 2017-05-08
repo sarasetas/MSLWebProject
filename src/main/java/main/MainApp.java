@@ -36,12 +36,13 @@ private static final Logger LOG = LoggerFactory.getLogger(MainApp.class);
 		     /** insert **/
 		     Receipt receipt = new Receipt();
 		    		    	
-		     receipt.setReceiptSequence(123456158);
+	/*	     receipt.setReceiptSequence(123456158);
 		     receipt.setOriginalReceiptNumberCode("XPTO6");
 		     receipt.setLastUpdateTimestamp(today);
-
-		     receiptOperation.insertReceipt(receipt);
-		     System.out.println("receipt inserted:" + receipt.getReceiptSequence() + ", " + receipt.getOriginalReceiptNumberCode());
+*/
+		     //receiptOperation.insertReceipt(receipt);
+		     receipt = receiptOperation.listReceipts().get(0);
+		     System.out.println("receipt :" + receipt.getReceiptSequence() + ", " + receipt.getOriginalReceiptNumberCode());
 		}
 		catch(Exception e){
     		LOG.error(ExceptionUtils.getStackTrace(e));
