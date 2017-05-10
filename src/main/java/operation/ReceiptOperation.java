@@ -17,6 +17,9 @@ public class ReceiptOperation {
 	private ReceiptService receiptService;
 	
 	public void insertReceipt(Receipt receipt) {
+		if(receipt.getReceiptSequence() == 0){
+			receiptService.getSetNextSequence();
+		}
 		receiptService.saveReceipt(receipt);
 		
 	}
@@ -37,5 +40,19 @@ public class ReceiptOperation {
 		List<Receipt> listReceipts = receiptService.findReceiptByCrit(crit);
 		
 		return listReceipts;
+	}
+	
+	public int getSetNextSequence(){
+		return receiptService.getSetNextSequence();
+	}
+	
+	public Receipt findReceiptById (int receiptSequence){
+		
+		return receiptService.findReceiptById(receiptSequence);
+		
+	}
+	
+	public void flushClearSession(){
+		receiptService.flushClearSession();
 	}
 }

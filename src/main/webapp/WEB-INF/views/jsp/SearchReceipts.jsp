@@ -21,72 +21,33 @@
 <div class="jumbotron">
   <div class="container">
 	<h1>${title}</h1>
-	<p>
-		<c:if test="${not empty receiptExample}">
-			Receipt: ${receiptExample}
-		</c:if>
-    </p>
 <c:url var="addAction" value="/receipt/add" ></c:url>
 
-<form:form action="${addAction}" commandName="receipt">
-<table>
-	<c:if test="${!empty receipt.originalReceiptNumberCode}">
-	
-	</c:if>
-	<tr>
-		<td>
-			<form:label path="id">
-				<spring:message text="ID"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="id" readonly="true" size="8"  disabled="true" />
-			<form:hidden path="id" />
-		</td> 
-	</tr>
-	<tr>
-		<td>
-			<form:label path="name">
-				<spring:message text="Name"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="name" />
-		</td> 
-	</tr>
-	<tr>
-		<td>
-			<form:label path="country">
-				<spring:message text="Country"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="country" />
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<c:if test="${!empty receipt.originalReceiptNumberCode}">
-				<input type="submit"
-					value="<spring:message text="Edit Receipt"/>" />
-			</c:if>
-			<c:if test="${empty receipt.originalReceiptNumberCode}">
-				<input type="submit"
-					value="<spring:message text="Add Receipt"/>" />
-			</c:if>
-		</td>
-	</tr>
-</table>	
-</form:form>
+<h3>Add Receipts</h3>
+  <form action="${addAction}" commandName="receipt">
+   <!--   <div class="form-group">
+      <label for="receiptSequence">ReceiptSequence:</label>
+      <input type="receiptSequence" class="form-control" id="receiptSequence"  name="receiptSequence">
+    </div> -->
+    <div class="form-group">
+      <label for="originalReceiptNumberCode">OriginalReceiptNumber:</label>
+			<input type="originalReceiptNumberCode" class="form-control" id="originalReceiptNumberCode" placeholder="Enter originalReceiptNumber" name="originalReceiptNumberCode">      
+    </div>
+   
+    	<button type="submit" class="btn btn-default">Add Receipt</button>
+   
+  </form>
 <br>
 <br>	</div>
 </div>
- <!-- <a class="btn btn-primary btn-lg" href="<c:url value='/receipt/add' />" role="button">Adicionar</a> -->
+ <!--  <a class="btn btn-primary btn-lg" href="<c:url value='/receipt/add' />" role="button">Adicionar</a> -->
+  
 <div class="container">
 
   <div class="row">
 	<c:if test="${!empty receiptList}">
 		<table class="tg">
+		<thead>
 		<tr>
 			<th width="80">ReceiptSequence</th>
 			<th width="120">OriginalReceiptNumber</th>
@@ -94,6 +55,8 @@
 			<th width="60">Edit</th>
 			<th width="60">Delete</th>
 		</tr>
+		</thead>
+		<tbody>
 		<c:forEach items="${receiptList}" var="receipt">
 			<tr>
 				<td>${receipt.receiptSequence}</td>
@@ -103,12 +66,13 @@
 				<td><a href="<c:url value='/remove/${receipt.receiptSequence}' />" >Delete</a></td>
 			</tr>
 			</c:forEach>
+		</tbody>
 		</table>
 	</c:if>
 		
   </div>
   <footer>
-	<p>&copy;</p>
+<!-- 	<p>&copy;</p>  -->
   </footer>
 </div>
  

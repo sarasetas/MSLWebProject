@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -42,11 +43,26 @@ public class ReceiptService {
 	{
 		List<Receipt> receiptList = receiptBo.findByCriteria(crit);
 		
-		/** Can only return 1 receipt from the search**/
 		if (receiptList.isEmpty()) 
 			return null;
 		else
 			return receiptList;		
+	}
+	
+	public Receipt findReceiptById (int receiptSequence){
+		
+		return receiptBo.findById(receiptSequence);
+
+	}
+	
+	public int getSetNextSequence(){
+		
+		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(Receipt.class)
+				.addOrder(Order.desc("receiptSequence"));
+		
+		List<Receipt> listReceipts = receiptBo.findByCriteria(crit);
+		
+		return listReceipts.get(0).getReceiptSequence() + 1;
 	}
 	
 	 /* Flush and Clear session for batch process

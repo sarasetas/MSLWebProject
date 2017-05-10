@@ -44,6 +44,9 @@ public class GenericBoImpl <T, PK extends Serializable> implements GenericBo <T,
 		//now
 		Date today = new Date(cal11.getTimeInMillis());
 
+		//TODO remove line 
+		newObjProps.setPropertyValue("lastUpdateTimestamp", today);
+		
 		if(newObjProps.getPropertyType("creationTimestamp") != null) 
 		{
 			newObjProps.setPropertyValue("creationTimestamp", today);
