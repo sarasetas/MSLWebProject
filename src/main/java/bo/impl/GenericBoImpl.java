@@ -177,4 +177,10 @@ public class GenericBoImpl <T, PK extends Serializable> implements GenericBo <T,
 
 		dao.getCurrentSession().merge(object);
 	}
+
+	@Override
+	public void remove(T object) {
+		dao.remove(object);
+		
+	}
 }

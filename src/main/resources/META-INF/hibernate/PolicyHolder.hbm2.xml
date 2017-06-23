@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2017 4:01:34 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.PolicyHolder" table="T020_POLICY_HOLDER">
+        <id name="policyHolderSequence" type="int">
+            <column name="SQ_POLICY_HOLDER" sql-type="NUMBER" />
+        </id>
+        <property name="policyNumberCode" type="java.lang.String">
+            <column name="AC_POLICY_NUMBER" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="partnerName" type="java.lang.String">
+            <column name="DS_PARTNER_NAME" sql-type="VARCHAR2" length="100" />
+        </property>
+        <property name="NIFCode" type="java.lang.String">
+            <column name="AC_NIF" sql-type="VARCHAR2" length="9" />
+        </property>
+        <property name="birthDate" type="java.util.Date">
+            <column name="DT_BIRTH" sql-type="DATE"/>
+        </property>
+        <property name="policyHolderType" type="java.lang.String">
+            <column name="AC_POLICY_HOLDER_TYPE" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="professionCode" type="java.lang.String">
+            <column name="AC_PROFESSION_CODE" sql-type="VARCHAR2" length="5" />
+        </property>
+        <property name="professionDescription" type="java.lang.String">
+            <column name="DS_PROFESSION" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="unemployedDate" type="java.util.Date">
+            <column name="DT_UNEMPLOYED" sql-type="DATE" />
+        </property>
+        <property name="employeeCategory" type="java.lang.String">
+            <column name="AC_EMPLOYEE_CATEGORY" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="DS_ADDRESS" sql-type="VARCHAR2" length="70" />
+        </property>
+        <property name="location" type="java.lang.String">
+            <column name="DS_LOCATION" sql-type="VARCHAR2" length="70" />
+        </property>
+        <property name="postalCode" type="java.lang.String">
+            <column name="DS_POSTAL_CODE" sql-type="VARCHAR2" length="10" />
+        </property>
+        <property name="country" type="java.lang.String">
+            <column name="AC_COUNTRY" sql-type="VARCHAR2" length="2" />
+        </property>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="AC_PHONE_NUMBER" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="personalPhoneNumber" type="java.lang.String">
+            <column name="AC_PERSONAL_PHONE_NUMBER" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="faxNumber" type="java.lang.String">
+            <column name="AC_FAX_NUMBER" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="AC_EMAIL" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="fiscalDocumentNumber" type="java.lang.String">
+            <column name="AC_FISCAL_DOCUMENT_NUMBER" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="fiscalDocumentDate" type="java.util.Date">
+            <column name="DT_FISCAL_DOCUMENT" sql-type="DATE" />
+        </property>
+        <property name="fiscalDocumentType" type="java.lang.String">
+            <column name="AC_FICAL_DOCUMENT" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="fiscalDocumentEndDate" type="java.util.Date">
+            <column name="DT_FISCAL_DOCUMENT_END" sql-type="DATE" />
+        </property>
+        <property name="nationality" type="java.lang.String">
+            <column name="AC_NATIONALITY" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="bank" type="java.lang.String">
+            <column name="AC_BANK" sql-type="VARCHAR2" length="5" />
+        </property>
+        <property name="office" type="java.lang.String">
+            <column name="AC_OFFICE" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="nib" type="java.lang.String">
+            <column name="AC_NIB" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="collectionUserCode" type="java.lang.String">
+            <column name="AC_COLLECTION_USER_CODE" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="managerUserCode" type="java.lang.String">
+            <column name="AC_MANAGER_USER_CODE" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="originGroup" type="java.lang.String">
+            <column name="AC_ORIGIN_GROUP" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="drivingLicenseNumber" type="int">
+            <column name="NI_DRIVING_LICENSE" length="20"  />
+        </property>
+        <property name="drivingLicenseDate" type="java.util.Date">
+            <column name="DT_DRIVING_LICENSE" sql-type="DATE" />
+        </property>
+        <property name="drivingLicenseEndDate" type="java.util.Date">
+            <column name="DT_DRIVING_LICENSE_END" sql-type="DATE" />
+        </property>
+        <property name="drivingLicenseCategory" type="java.lang.String">
+            <column name="AC_DRIVING_LICENSE" sql-type="VARCHAR2" length="20" />
+        </property>
+        <property name="history" type="java.lang.String">
+            <column name="DS_HISTO	RY" sql-type="VARCHAR2" length="200" />
+        </property>
+        <property name="observation" type="java.lang.String">
+            <column name="DS_OBSERVATION" sql-type="VARCHAR2" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

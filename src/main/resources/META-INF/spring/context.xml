@@ -67,6 +67,29 @@
  	
 	</bean>
 	
+	<!-- ****************** Persistence Configuration ****************** -->
+  
+	<bean id="dataSourceConfiguration" class="service.db.DataSourceConfiguration">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="host" value="${dbHost}"/>
+		<property name="port" value="${dbPort}"/>
+		<property name="sid" value="${dbSid}"/>
+		<property name="user" value="${dbUser}"/>
+		<property name="pass" value="${dbPass}"/>
+		<property name="initialSize" value="${dbInitialSize}"/>
+		<property name="maxActive" value="${dbMaxActive}"/>
+		<property name="maxWait" value="${dbMaxWait}"/>
+		<property name="maxIdle" value="${dbMaxIdle}" />
+		<property name="removeAbandoned" value="${dbRemoveAbandoned}"/>
+		<property name="removeAbandonedTimeout" value="${dbRemoveAbandonedTimeout}"/>
+		<property name="timeBetweenEvictionRunsMillis" value="${dbTimeBetweenEvictionRunsMillis}" />
+	    <property name="numTestsPerEvictionRun" value="${dbNumTestsPerEvictionRun}" />
+	    <property name="minEvictableIdleTimeMillis" value="${dbMinEvictableIdleTimeMillis}" />
+	    <property name="poolPreparedStatements" value="${dbPoolPreparedStatements}" />
+	    <property name="maxOpenPreparedStatements" value="${dbMaxOpenPreparedStatements}" />
+	</bean> 
+  
+  	
 	<!-- This section configures the sessionFactory obtain from EntityManagerFactory -->
 	 <bean id="sessionFactory"  factory-bean="entityManagerFactory" factory-method="getSessionFactory"/>     	
  	

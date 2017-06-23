@@ -28,10 +28,10 @@ public class ReceiptService {
 	{
 		receiptBo.save(receipt);
 	}
-	
+
 	public void removeReceipt(Receipt receipt)
 	{
-		receiptBo.delete(receipt);
+		receiptBo.remove(receipt);
 	}
 	
 	public void updateReceipt(Receipt receipt)
@@ -50,8 +50,9 @@ public class ReceiptService {
 	}
 	
 	public Receipt findReceiptById (int receiptSequence){
-		
-		return receiptBo.findById(receiptSequence);
+		Receipt receipt = new Receipt();
+		receipt = receiptBo.findById(receiptSequence);
+		return receipt;
 
 	}
 	
@@ -72,5 +73,4 @@ public class ReceiptService {
 		receiptBo.getCurrentSession().clear();
 	}
 
-	
 }

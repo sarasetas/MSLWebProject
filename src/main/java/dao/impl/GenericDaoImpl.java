@@ -4,9 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
@@ -36,6 +35,8 @@ public class GenericDaoImpl <T, PK extends Serializable>
 	
 	private Class<T> type;
 	
+	private SessionFactory sessionFactory;
+	
 	/***********************
 	 *    Class Methods    *
 	 ***********************/
@@ -61,6 +62,12 @@ public class GenericDaoImpl <T, PK extends Serializable>
 	@Override
 	public void delete(T object) {
 		getHibernateTemplate().delete(object);
+	}
+	
+	@Override
+	public void remove(T object) {
+		// used for detached objects
+		getHibernateTemplate().delete(getHibernateTemplate().merge(object));				
 	}
 
 	@Override

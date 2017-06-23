@@ -10,7 +10,7 @@
 	<properties>
 		<jdk.version>1.6</jdk.version>
 		<jstl.version>1.2</jstl.version>
-		<hibernate.version>3.4.0.GA</hibernate.version>
+		<hibernate.version>3.5.4-Final</hibernate.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
@@ -253,7 +253,7 @@
 					<hibernatetool>
 						<jpaconfiguration persistenceunit="unit" />
 						<hbm2ddl update="false" export="false" console="true"
-							outputfilename="persistence.sql" create="false" />
+							outputfilename="persistence.sql" create="true" />
 					</hibernatetool>
 				</configuration>
 			</plugin>	

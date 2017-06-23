@@ -53,4 +53,7 @@ public interface GenericDao <T, PK extends Serializable> {
 	/** Returns a list of arrays for a specific named query */
 	List<Object[]> executeNamedQueryMatrix(String namedQuery, String[] args, Object[] values);
 
+	/** Remove an existing instance of Object<T> from the database from a HTTP session**/
+	void remove(T object);
+
 }

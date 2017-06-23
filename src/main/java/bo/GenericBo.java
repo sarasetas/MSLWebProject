@@ -56,5 +56,8 @@ public interface GenericBo <T, PK extends Serializable> {
 	/** Detach the objects in a list from session */
 	void detach( List<Object> listOfObjects);
 
+	/** Delete an existing instance of Object<T> from the database for detached objects **/
+	void remove(T object);
+
 }
 	
