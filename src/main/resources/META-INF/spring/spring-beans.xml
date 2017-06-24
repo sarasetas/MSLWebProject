@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 		
-
+	<!-- Beans for service classes -->
  		
 	<bean id="receiptService"
 		class="service.ReceiptService"
@@ -15,7 +15,15 @@
 		 	<bean factory-bean="PersistenceService" factory-method="getReceiptBo" />  
 		</property>
 	</bean>
-							
+	<bean id="policyHolderService"
+		class="service.PolicyHolderService"
+		autowire="byName">
+		<property name="policyHolderBo">
+		 	<bean factory-bean="PersistenceService" factory-method="getPolicyHolderBo" />  
+		</property>
+	</bean>
+	
+	<!-- Beans for Bo entities -->		
     <bean id="receiptBo"
 		class="bo.impl.GenericBoImpl">
 		<property name="dao">
@@ -23,6 +31,18 @@
 				class="dao.impl.GenericDaoImpl">
 			 	<constructor-arg>
 					<value type="java.lang.Class">model.Receipt</value>
+				</constructor-arg> 
+	 			  <property name="sessionFactory" ref="sessionFactory"/>    
+			</bean>
+		</property>
+	</bean>
+	<bean id="policyHolderBo"
+		class="bo.impl.GenericBoImpl">
+		<property name="dao">
+			<bean id="policyHolderDao"
+				class="dao.impl.GenericDaoImpl">
+			 	<constructor-arg>
+					<value type="java.lang.Class">model.PolicyHolder</value>
 				</constructor-arg> 
 	 			  <property name="sessionFactory" ref="sessionFactory"/>    
 			</bean>
@@ -36,9 +56,11 @@
  -->
  	
  	
-	
+	<!-- Beans for operation classes -->
 	<bean id="receiptOperation"
 		class="operation.ReceiptOperation" autowire="byName"/>		
+	<bean id="policyHolderOperation"
+		class="operation.PolicyHolderOperation" autowire="byName"/>
 
 	<!-- *All OSGI exposed services should be wired here. @id - ID used to reference 
 		the bean in the bundle-context-os\gi.xml file @class - The class that implements 

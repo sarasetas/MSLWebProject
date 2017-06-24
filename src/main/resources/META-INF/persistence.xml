@@ -6,6 +6,7 @@
 	<persistence-unit name="unit" transaction-type="RESOURCE_LOCAL">
 	
 	<mapping-file>META-INF/hibernate/Receipt.hbm.xml</mapping-file>
+	<mapping-file>META-INF/hibernate/PolicyHolder.hbm.xml</mapping-file>
 	 <exclude-unlisted-classes />
 	</persistence-unit>
 </persistence>
