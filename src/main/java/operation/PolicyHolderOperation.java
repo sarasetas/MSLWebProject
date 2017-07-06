@@ -3,7 +3,7 @@ package operation;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,12 +34,10 @@ public class PolicyHolderOperation {
 		policyHolderService.updatePolicyHolder(policyHolder);
 	}
 	
-	public List<PolicyHolder> listPolicyHolders (){
-
-		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(PolicyHolder.class)
-				.addOrder(Order.asc("policyHolderSequence"));
-				
-		List<PolicyHolder> listPolicyHolders = policyHolderService.findPolicyHolderByCrit(crit);
+	public List<PolicyHolder> listPolicyHolders (PolicyHolder policyHolder){
+		
+		List<PolicyHolder> listPolicyHolders = policyHolder.getPartnerName().trim() != null ? 
+				findPolicyHolderByPartnerName(policyHolder.getPartnerName()) : findPolicyHolderByNIF(policyHolder.getNIFCode());
 		
 		return listPolicyHolders;
 	}
@@ -53,6 +51,27 @@ public class PolicyHolderOperation {
 		return policyHolderService.findPolicyHolderById(policyHolderSequence);
 		
 	}
+	
+	public List<PolicyHolder> findPolicyHolderByPartnerName (String partnerName){
+
+		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(PolicyHolder.class)
+				.add(Restrictions.like("partnerName", partnerName));
+				
+		List<PolicyHolder> listPolicyHolders = policyHolderService.findPolicyHolderByCrit(crit);
+		
+		return listPolicyHolders;
+	}
+	
+	public List<PolicyHolder> findPolicyHolderByNIF (String NIFCode){
+
+		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(PolicyHolder.class)
+				.add(Restrictions.eq("NIFCode", NIFCode));
+				
+		List<PolicyHolder> listPolicyHolders = policyHolderService.findPolicyHolderByCrit(crit);
+		
+		return listPolicyHolders;
+	}
+
 	
 	public void flushClearSession(){
 		policyHolderService.flushClearSession();

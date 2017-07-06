@@ -11,10 +11,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "receipt", propOrder = {
-		"receiptSequence", "originalReceiptNumberCode", "lastUpdateTimestamp"})
-@XmlRootElement
+//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlType(name = "receipt", propOrder = {
+//		"receiptSequence", "originalReceiptNumberCode", "lastUpdateTimestamp"})
+//@XmlRootElement
 public class Receipt implements Serializable  {
 
 	
@@ -24,13 +24,13 @@ public class Receipt implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 
-	@XmlElement(name = "ReceiptSequence")
+//	@XmlElement(name = "ReceiptSequence")
 	 private int receiptSequence;
 	
-	@XmlElement(name = "OriginalReceiptNumberCode")
+//	@XmlElement(name = "OriginalReceiptNumberCode")
 	private String originalReceiptNumberCode;
 	
-	@XmlElement(name = "LastUpdateTimestamp")
+//	@XmlElement(name = "LastUpdateTimestamp")
 	private Date lastUpdateTimestamp;
 	
 	public Receipt(){

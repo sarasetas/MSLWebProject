@@ -3,6 +3,7 @@ package persistence.service;
 import org.springframework.stereotype.Component;
 
 import bo.GenericBo;
+import model.PolicyHolder;
 import model.Receipt;
 
 /**
@@ -11,8 +12,6 @@ import model.Receipt;
  * pt.victoria.sc.service.SCPersistenceServiceImpl in the sc-persistence-service project
  * 
  * When a new BO is created a new method should be added here and implemented in the impl class.
- * 
- * @author nturkman@maksen.com
  *
  */
 @Component
@@ -22,6 +21,9 @@ public interface PersistenceService {
 	/** Exposes Receipt entity business object **/
 	GenericBo<Receipt, Integer> getReceiptBo();
 	
+	/** Exposes PolicyHolder entity business object **/
+	GenericBo<PolicyHolder, Integer> getPolicyHolderBo();
 	
 	GenericBo<Object, Integer> getXlsErrorListBo();
+
 }

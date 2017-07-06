@@ -21,7 +21,7 @@
 
 <div class="container">
 
-<c:url var="search" value="searchReceipts" ></c:url> 
+<!-- <c:url var="search" value="clientsList" ></c:url> -->
 <c:url var="addReceipts" value="/receipt/add" ></c:url>
 <br><br>
 	<div>
@@ -34,18 +34,24 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-md-4">
-						<label for="originalReceiptNumberCode">OriginalReceiptNumber</label>
+						<label for="N">Nome:</label>
 					</div>			
+					<div class="col-md-4">
+						<label for="N">NIFCode:</label>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6 col-md-4">
-						<input type="originalReceiptNumberCode" class="form-control" id="originalReceiptNumberCode" placeholder="Enter originalReceiptNumber" name="originalReceiptNumberCode">
-					</div>			
+						<input type="partnerName" class="form-control" id="partnerName" placeholder="Enter originalReceiptNumber" name="partnerName">
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<input type="NIFCode" class="form-control" id="NIFCode" placeholder="Enter originalReceiptNumber" name="NIFCode">
+					</div>					
 				</div>
 				<br>
 				<div class="row">
 					<div class="col-md-1">
-						<button type="submit" class="btn btn-default">Search</button>					
+						<button type="submit" onsubmit="showHide()" class="btn btn-default">Search</button>					
 					</div>
 						<form action="${addReceipts}">
 							<div class="col-sm-2 col-md-4">
@@ -57,27 +63,28 @@
 		</form>
 	</div>
 	
-	<div>
+	
+	<div id = "form" >
 		<div class="row">
 		  <c:choose> 
-		  		<c:when test="${empty receiptList}">No receipts found</c:when>
+		  		<c:when test="${empty policyHolderList}">Não foram encontrados registos</c:when>
 		  		<c:otherwise>
 		  			<table class="table table-striped">
 				<thead>
 				<tr>
-					<th width="80">ReceiptSequence</th>
-					<th width="120">OriginalReceiptNumber</th>
-					<th width="120">LastUpdate</th>
+					<th width="80">ID</th>
+					<th width="120">NIF</th>
+					<th width="120">Nome</th>
 					<th width="60">Edit</th>
 					<th width="60">Delete</th>
 				</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${receiptList}" var="receipt">
+				<c:forEach items="${policyHolderList}" var="policyHolder">
 					<tr>
-						<td>${receipt.receiptSequence}</td>
-						<td>${receipt.originalReceiptNumberCode}</td>
-						<td>${receipt.lastUpdateTimestamp}</td>
+						<td>${policyHolder.policyHolderSequence}</td>
+						<td>${policyHolder.NIFCode}</td>
+						<td>${policyHolder.partnerName}</td>
 						<td><a href="<c:url value='/edit/${receipt.receiptSequence}' />" >Edit</a></td>
 						<td><a href="<c:url value='/remove/${receipt.receiptSequence}' />" >Delete</a></td>
 					</tr>
@@ -90,13 +97,27 @@
 	</div>
  </div>
   <footer>
-	
+
   </footer>
 <spring:url value="/resources/core/css/hello.js" var="coreJs" />
 <spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
- <script src="${coreJs}"></script> 
+
+<!--  <script src="${coreJs}"></script> -->
 <script src="${bootstrapJs}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ 
+<script>window.onload = function(){
+	document.getElementById('form').style.display="none";
+	}
+</script>
+ <script>
+function showHide() {
+    var x = document.getElementById('form');
+    
+        x.style.display = 'block';
+    
+}
+</script>
  
 </body>
 </html>

@@ -104,7 +104,7 @@
             <column name="AC_DRIVING_LICENSE" sql-type="VARCHAR2" length="20" />
         </property>
         <property name="history" type="java.lang.String">
-            <column name="DS_HISTO	RY" sql-type="VARCHAR2" length="200" />
+            <column name="DS_HISTORY" sql-type="VARCHAR2" length="200" />
         </property>
         <property name="observation" type="java.lang.String">
             <column name="DS_OBSERVATION" sql-type="VARCHAR2" length="200" />

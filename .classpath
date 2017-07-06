@@ -48,7 +48,7 @@
 			<attribute name="javadoc_location" value="jar:file:/Users/mkyong/maven/repo/org/springframework/spring-expression/3.2.13.RELEASE/spring-expression-3.2.13.RELEASE-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE.jar" sourcepath="C:/Users/ssetas/.m2/repository/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/Users/mkyong/maven/repo/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE-javadoc.jar!/"/>
 		</attributes>
