@@ -15,8 +15,6 @@ import dao.GenericDao;
 
 /**
  * 
- * @author nturkman
- *
  * Implements the GenericBo interface
  *
  * @param <T>

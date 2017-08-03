@@ -8,7 +8,6 @@ import org.hibernate.criterion.DetachedCriteria;
 
 /**
  * 
- * @author nturkman
  *
  * This class defines the projects GenericaDao.
  * All data access functions should be represented in this interface

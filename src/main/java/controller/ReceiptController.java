@@ -22,13 +22,12 @@ import operation.ReceiptOperation;
 public class ReceiptController {
  
 	ApplicationContext appContext = new ClassPathXmlApplicationContext("META-INF/spring/config/bean-location.xml");
-	//MainApp mainApp = appContext.getBean(MainApp.class);
 	ReceiptOperation receiptOperation = (ReceiptOperation) appContext.getBean("receiptOperation");		    
 
 	@RequestMapping(value = "/searchReceipts", method = RequestMethod.GET)
 	public String searchReceipts(@ModelAttribute("receipt") Receipt receipt, Model model) {
 	   	
-	    // if there is not any search then show all receipts
+	    // 
 	    List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null ? receiptOperation.listReceipts() 
 	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(receipt.getOriginalReceiptNumberCode());
 	    
