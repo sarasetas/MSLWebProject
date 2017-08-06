@@ -28,13 +28,17 @@ public class ReceiptController {
 	public String searchReceipts(@ModelAttribute("receipt") Receipt receipt, Model model) {
 	   	
 	    // 
-	    List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null ? receiptOperation.listReceipts() 
-	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(receipt.getOriginalReceiptNumberCode());
+	  /*  List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null ? receiptOperation.listReceipts() 
+	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(receipt.getOriginalReceiptNumberCode());*/
+	    List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null || receipt.getOriginalReceiptNumberCode() == ""  ? receiptOperation.listReceipts() 
+	    		: receiptOperation.findReceiptsBySomething(receipt.getOriginalReceiptNumberCode());
 	    
 	  	model.addAttribute("receipt", new Receipt());
 		model.addAttribute("receiptList", listReceipts);
 		return "SearchReceipts";	
 	}
+	
+	
    
    @RequestMapping(value = "/AjaxTest")
    public String home (){
@@ -47,8 +51,11 @@ public class ReceiptController {
    		throws Exception {
 	   	
 	   String originalReceiptNumber = request.getParameter("originalReceiptNumberCode");
-	    List <Receipt> receiptsList = originalReceiptNumber == null ? receiptOperation.listReceipts() 
-	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(originalReceiptNumber.trim());
+	   /* List <Receipt> receiptsList = originalReceiptNumber == null || originalReceiptNumber == ""  ? receiptOperation.listReceipts() 
+	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(originalReceiptNumber.trim());*/
+	    List <Receipt> receiptsList = originalReceiptNumber == null || originalReceiptNumber == ""  ? receiptOperation.listReceipts() 
+	    		: receiptOperation.findReceiptsBySomething(originalReceiptNumber.trim());
+	    
 	    
 		return receiptsList;
 	}

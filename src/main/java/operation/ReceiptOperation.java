@@ -54,6 +54,16 @@ public class ReceiptOperation {
 		
 		return listReceipts;
 	}
+	public List<Receipt> findReceiptsBySomething (String originalReceiptNumber){
+
+		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(Receipt.class)
+				.add(Restrictions.ilike("originalReceiptNumberCode", "%" + originalReceiptNumber + "%"));
+				
+		List<Receipt> listReceipts = receiptService.findReceiptByCrit(crit);
+		
+		return listReceipts;
+	}
+	
 	
 	public int getSetNextSequence(){
 		return receiptService.getSetNextSequence();

@@ -27,13 +27,6 @@ function searchViaAjax(){
 			console.log(receiptList);
 			
 			$('#seeResults').html(response[0].originalReceiptNumberCode);
-
-
-	/*		    $.each(response, function(i, item) {
-			    	
-			    	trHTML += '<tr><td>' + item.receiptSequence + '</td><td>' + item.originalReceiptNumberCode + '</td><td>' + item.lastUpdateTimestamp + '</td></tr>';
-			    });
-			$('#listReceipts').html(trHTML); */
 		},
 		error: function(response){
 			console.log(response);

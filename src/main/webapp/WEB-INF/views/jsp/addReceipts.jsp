@@ -29,32 +29,42 @@
 				<h3>Add Receipts</h3>
 			</div>	
 		</div>
-		<form action="${addAction}" commandName="receipt">
+		
 			<div class="form-group">
 				<div class="row">
-					<div class="col-md-4">
-						<label for="originalReceiptNumberCode">OriginalReceiptNumberCode</label>
-					</div>			
-				</div>
-				<div class="row">
-					<div class="col-sm-6 col-md-4">
-						<input type="originalReceiptNumberCode" class="form-control" id="originalReceiptNumberCode" name="originalReceiptNumberCode" required>
-					</div>			
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-1">
-						<button type="submit" class="btn btn-info">Add</button>
-					</div>
-						<form action="${voltar}">
-							<div class="col-sm-2 col-md-1">
-  								<button type="submit" class="btn btn-default">Return</button>
-   							</div>		
-   						</form>
+					<form action="${addAction}" commandName="receipt">
+					<div class="row">
+						<div class="col-md-4">
+							<label for="originalReceiptNumberCode">OriginalReceiptNumberCode</label>
+						</div>		
+						<div class="col-md-offset-8">
+							</div>	
+						</div>	
+						<br>
+					  <div class="row">
+						<div class="col-md-4">
+							<input type="originalReceiptNumberCode" class="form-control" id="originalReceiptNumberCode" name="originalReceiptNumberCode" required>
+						</div>
+						</div>			
+					 <div class="col-md-offset-8">
+					 
+						</div>	
+					  <br>
+					 
+					 
+							<div class="row col-md-1">
+								<button type="submit" class="btn btn-info">Add</button>
+							</div>
+					</form>	
+					<form action="${voltar}">
+						<div class="col-md-1">
+ 								<button type="submit" class="btn btn-default">Return</button>
+ 							</div>		
+ 						</form>
+				 
 				</div>
 			</div>
-		</form>	
-	</div>
+		</div>
 	
 	<div id="list">
 	  <div class="row">

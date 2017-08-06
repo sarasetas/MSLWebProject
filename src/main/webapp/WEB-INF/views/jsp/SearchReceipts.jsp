@@ -6,9 +6,10 @@
 <title>MSL</title>
  
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+ 
 </head>
  
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,7 +31,7 @@
 				<h3>Search Receipts</h3>
 			</div>	
 		</div>
-		<form action="${search}" commandName="receipt">
+		
 			<div class="form-group">
 				<div class="row">
 					<div class="col-md-4">
@@ -39,8 +40,10 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-6 col-md-4">
-						<input type="originalReceiptNumberCode" class="form-control" id="originalReceiptNumberCode" placeholder="Enter originalReceiptNumber" name="originalReceiptNumberCode">
-					</div>			
+						<form action="${search}" commandName="receipt">
+							<input type="originalReceiptNumberCode" class="form-control" id="originalReceiptNumberCode" placeholder="Enter originalReceiptNumber" name="originalReceiptNumberCode">
+						</form>	
+					</div>	
 				</div>
 				<br>
 				<div class="row">
@@ -54,7 +57,7 @@
    						</form>
 				</div>
 			</div>
-		</form>
+		
 	</div>
 	
 	<div>
