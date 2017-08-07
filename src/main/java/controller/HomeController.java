@@ -21,11 +21,11 @@ public class HomeController {
 	
 	 @RequestMapping(value = "/home")
 		public String home() {
-			return "home";
+			return "home/home";
 		}
 	 
 	 @RequestMapping(value = "/")
 		public String home2() {
-			return "home";
+			return "home/home";
 		}
 }
