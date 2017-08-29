@@ -30,8 +30,8 @@ public class ReceiptController {
 	    // 
 	  /*  List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null ? receiptOperation.listReceipts() 
 	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(receipt.getOriginalReceiptNumberCode());*/
-	    List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null || receipt.getOriginalReceiptNumberCode() == ""  ? receiptOperation.listReceipts() 
-	    		: receiptOperation.findReceiptsBySomething(receipt.getOriginalReceiptNumberCode());
+	    List <Receipt> listReceipts = receipt.getAcOriginalReceiptNumber() == null || receipt.getAcOriginalReceiptNumber() == ""  ? receiptOperation.listReceipts() 
+	    		: receiptOperation.findReceiptsBySomething(receipt.getAcOriginalReceiptNumber());
 	    
 	  	model.addAttribute("receipt", new Receipt());
 		model.addAttribute("receiptList", listReceipts);
@@ -62,12 +62,13 @@ public class ReceiptController {
    
 	@RequestMapping(value = "/receipt/add", method = RequestMethod.GET)
 	public String addReceipt(@ModelAttribute("receipt") Receipt receipt, Model model){
-		if (receipt != null && receipt.getReceiptSequence() == 0 && receipt.getOriginalReceiptNumberCode() != null) {
-			receipt.setReceiptSequence(receiptOperation.getSetNextSequence());
+		if (receipt != null && receipt.getSqReceipt() == 0 && receipt.getAcOriginalReceiptNumber() != null) {
+			receipt.setSqReceipt(receiptOperation.getSetNextSequence());
 			receiptOperation.insertReceipt(receipt);
 		}
 	 	model.addAttribute("receipt", new Receipt());
 		model.addAttribute("receiptList", receiptOperation.listReceipts());
+		
 		return "addReceipts";
 	}	
 	

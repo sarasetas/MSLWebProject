@@ -63,7 +63,7 @@ public class ReceiptService {
 		
 		List<Receipt> listReceipts = receiptBo.findByCriteria(crit);
 		
-		return listReceipts.get(0).getReceiptSequence() + 1;
+		return listReceipts.get(0).getSqReceipt() + 1;
 	}
 	
 	 /* Flush and Clear session for batch process

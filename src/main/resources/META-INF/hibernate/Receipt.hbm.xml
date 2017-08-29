@@ -1,17 +1,180 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 12, 2017 1:25:36 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated Aug 29, 2017 4:10:22 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="model.Receipt" table="T_RECEIPT">
-        <id name="receiptSequence" type="int">
-			<column name="SQ_RECEIPT" sql-type="NUMBER" />
-		</id>
-		<property generated="never" lazy="false" name="originalReceiptNumberCode" type="java.lang.String">
-			<column name="AC_ORIGINAL_RECEIPT_NUMBER" sql-type="VARCHAR2" length="25" />
-		</property>
-		<property generated="never" lazy="false" name="lastUpdateTimestamp" type="java.util.Date">
-			<column name="TS_LAST_UPDATE" sql-type="TIMESTAMP"/>
-		</property>
+    <class name="model.Receipt" table="RECEIPT">
+        <id name="sqReceipt" type="int">
+            <column name="SQ_RECEIPT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="acCompany" type="string">
+            <column name="AC_COMPANY" length="10" not-null="true" />
+        </property>
+        <property name="sqOperation" type="int">
+            <column name="SQ_OPERATION" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="acOperationType" type="string">
+            <column name="AC_OPERATION_TYPE" length="4" not-null="true" />
+        </property>
+        <property name="acOriginalReceiptNumber" type="string">
+            <column name="AC_ORIGINAL_RECEIPT_NUMBER" length="25" not-null="true" />
+        </property>
+        <property name="acReceiptType" type="string">
+            <column name="AC_RECEIPT_TYPE" length="3" not-null="true" />
+        </property>
+        <property name="acReceiptSubtype" type="string">
+            <column name="AC_RECEIPT_SUBTYPE" length="3" not-null="true" />
+        </property>
+        <property name="sqPolicyHolder" type="int">
+            <column name="SQ_POLICY_HOLDER" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="acPolicyNumber" type="string">
+            <column name="AC_POLICY_NUMBER" length="20" not-null="true" />
+        </property>
+        <property name="dtEmission" type="date">
+            <column name="DT_EMISSION" length="7" not-null="true" />
+        </property>
+        <property name="dtDueDate" type="date">
+            <column name="DT_DUE_DATE" length="7" not-null="true" />
+        </property>
+        <property name="dtMaturityDate" type="date">
+            <column name="DT_MATURITY_DATE" length="7" not-null="true" />
+        </property>
+        <property name="dtCancelPolicy" type="date">
+            <column name="DT_CANCEL_POLICY" length="7" />
+        </property>
+        <property name="acPremiumPeriod" type="string">
+            <column name="AC_PREMIUM_PERIOD" length="3" not-null="true" />
+        </property>
+        <property name="acBranch" type="string">
+            <column name="AC_BRANCH" length="7" not-null="true" />
+        </property>
+        <property name="acProduct" type="string">
+            <column name="AC_PRODUCT" length="6" not-null="true" />
+        </property>
+        <property name="dtRiskBegin" type="date">
+            <column name="DT_RISK_BEGIN" length="7" />
+        </property>
+        <property name="dtRiskEnd" type="date">
+            <column name="DT_RISK_END" length="7" />
+        </property>
+        <property name="acProposalNumber" type="string">
+            <column name="AC_PROPOSAL_NUMBER" length="23" />
+        </property>
+        <property name="acBenefits" type="string">
+            <column name="AC_BENEFITS" length="6" />
+        </property>
+        <property name="fgGroupCollection" type="string">
+            <column name="FG_GROUP_COLLECTION" length="1" />
+        </property>
+        <property name="acGroupPolicy" type="string">
+            <column name="AC_GROUP_POLICY" length="14" />
+        </property>
+        <property name="acLicensePlate" type="string">
+            <column name="AC_LICENSE_PLATE" length="16" />
+        </property>
+        <property name="dtWorkBegin" type="date">
+            <column name="DT_WORK_BEGIN" length="7" />
+        </property>
+        <property name="dtWorkEnd" type="date">
+            <column name="DT_WORK_END" length="7" />
+        </property>
+        <property name="niWorkDuration" type="int">
+            <column name="NI_WORK_DURATION" precision="22" scale="0" />
+        </property>
+        <property name="amReceiptTotal" type="big_decimal">
+            <column name="AM_RECEIPT_TOTAL" precision="13" not-null="true" />
+        </property>
+        <property name="amSimplePremium" type="big_decimal">
+            <column name="AM_SIMPLE_PREMIUM" precision="13" />
+        </property>
+        <property name="amComercialPremium" type="big_decimal">
+            <column name="AM_COMERCIAL_PREMIUM" precision="13" />
+        </property>
+        <property name="amComercialDiscount" type="big_decimal">
+            <column name="AM_COMERCIAL_DISCOUNT" precision="13" />
+        </property>
+        <property name="amGreenCardCosts" type="big_decimal">
+            <column name="AM_GREEN_CARD_COSTS" precision="13" />
+        </property>
+        <property name="amRecordCost" type="big_decimal">
+            <column name="AM_RECORD_COST" precision="13" />
+        </property>
+        <property name="amPolicyCost" type="big_decimal">
+            <column name="AM_POLICY_COST" precision="13" />
+        </property>
+        <property name="amBonusMalus" type="big_decimal">
+            <column name="AM_BONUS_MALUS" precision="13" />
+        </property>
+        <property name="amAssistance" type="big_decimal">
+            <column name="AM_ASSISTANCE" precision="13" />
+        </property>
+        <property name="amSurcharge" type="big_decimal">
+            <column name="AM_SURCHARGE" precision="13" />
+        </property>
+        <property name="amPremiumCorrection" type="big_decimal">
+            <column name="AM_PREMIUM_CORRECTION" precision="13" />
+        </property>
+        <property name="acCurrency" type="string">
+            <column name="AC_CURRENCY" length="3" not-null="true" />
+        </property>
+        <property name="acClaimNumber" type="string">
+            <column name="AC_CLAIM_NUMBER" length="15" />
+        </property>
+        <property name="acSubClaimNumber" type="string">
+            <column name="AC_SUB_CLAIM_NUMBER" length="15" />
+        </property>
+        <property name="dtClaimOccurrence" type="date">
+            <column name="DT_CLAIM_OCCURRENCE" length="7" />
+        </property>
+        <property name="dtClaimOpening" type="date">
+            <column name="DT_CLAIM_OPENING" length="7" />
+        </property>
+        <property name="acClaimDocumentNumber" type="string">
+            <column name="AC_CLAIM_DOCUMENT_NUMBER" length="15" />
+        </property>
+        <property name="acIds" type="string">
+            <column name="AC_IDS" length="1" not-null="true" />
+        </property>
+        <property name="fgAggregation" type="int">
+            <column name="FG_AGGREGATION" precision="1" scale="0" />
+        </property>
+        <property name="acAggregationReference" type="string">
+            <column name="AC_AGGREGATION_REFERENCE" length="15" />
+        </property>
+        <property name="acAtmEntity" type="string">
+            <column name="AC_ATM_ENTITY" length="10" />
+        </property>
+        <property name="acAtmReference" type="string">
+            <column name="AC_ATM_REFERENCE" length="15" />
+        </property>
+        <property name="acCttReference" type="string">
+            <column name="AC_CTT_REFERENCE" length="50" />
+        </property>
+        <property name="fgCollectLetterSent" type="string">
+            <column name="FG_COLLECT_LETTER_SENT" length="1" />
+        </property>
+        <property name="niInsuredObjects" type="int">
+            <column name="NI_INSURED_OBJECTS" precision="5" scale="0" />
+        </property>
+        <property name="dsInsuredObject" type="string">
+            <column name="DS_INSURED_OBJECT" length="100" />
+        </property>
+        <property name="acManagerUserCode" type="string">
+            <column name="AC_MANAGER_USER_CODE" length="20" />
+        </property>
+        <property name="acCreationUser" type="string">
+            <column name="AC_CREATION_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsCreation" type="date">
+            <column name="TS_CREATION" not-null="true" />
+        </property>
+        <property name="acLastUpdateUser" type="string">
+            <column name="AC_LAST_UPDATE_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsLastUpdate" type="date">
+            <column name="TS_LAST_UPDATE" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

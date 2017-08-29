@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 28, 2017 5:08:27 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.TransactionDetail" table="TRANSACTION_DETAIL">
+        <id name="sqTransaction" type="big_decimal">
+            <column name="SQ_TRANSACTION" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="acAccount" type="string">
+            <column name="AC_ACCOUNT" length="10" />
+        </property>
+        <property name="acCompany" type="string">
+            <column name="AC_COMPANY" length="3" not-null="true" />
+        </property>
+        <property name="acBalanceType" type="string">
+            <column name="AC_BALANCE_TYPE" length="3" not-null="true" />
+        </property>
+        <property name="acBalanceSubtype" type="string">
+            <column name="AC_BALANCE_SUBTYPE" length="3" not-null="true" />
+        </property>
+        <property name="sqOperation" type="big_decimal">
+            <column name="SQ_OPERATION" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="acOperationType" type="string">
+            <column name="AC_OPERATION_TYPE" length="4" not-null="true" />
+        </property>
+        <property name="dtTransaction" type="date">
+            <column name="DT_TRANSACTION" length="7" />
+        </property>
+        <property name="acCreditDebit" type="string">
+            <column name="AC_CREDIT_DEBIT" length="3" not-null="true" />
+        </property>
+        <property name="amTransaction" type="big_decimal">
+            <column name="AM_TRANSACTION" precision="13" />
+        </property>
+        <property name="acCurrency" type="string">
+            <column name="AC_CURRENCY" length="3" not-null="true" />
+        </property>
+        <property name="acPolicyNumber" type="string">
+            <column name="AC_POLICY_NUMBER" length="20" />
+        </property>
+        <property name="acClaimNumber" type="string">
+            <column name="AC_CLAIM_NUMBER" length="15" />
+        </property>
+        <property name="acOriginalReceiptNumber" type="string">
+            <column name="AC_ORIGINAL_RECEIPT_NUMBER" length="25" />
+        </property>
+        <property name="sqReceipt" type="big_decimal">
+            <column name="SQ_RECEIPT" precision="22" scale="0" />
+        </property>
+        <property name="acCreationUser" type="string">
+            <column name="AC_CREATION_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsCreation" type="serializable">
+            <column name="TS_CREATION" not-null="true" />
+        </property>
+        <property name="acLastUpdateUser" type="string">
+            <column name="AC_LAST_UPDATE_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsLastUpdate" type="serializable">
+            <column name="TS_LAST_UPDATE" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

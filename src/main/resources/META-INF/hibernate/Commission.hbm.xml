@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 4:10:22 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.Commission" table="COMMISSION">
+        <composite-id name="id" class="CommissionId">
+            <key-property name="sqCommission" type="int">
+                <column name="SQ_COMMISSION" precision="22" scale="0" />
+            </key-property>
+            <key-property name="sqCommissionVersion" type="int">
+                <column name="SQ_COMMISSION_VERSION" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="acCompany" type="string">
+            <column name="AC_COMPANY" length="10" />
+        </property>
+        <property name="sqOperation" type="int">
+            <column name="SQ_OPERATION" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="acCommissionType" type="string">
+            <column name="AC_COMMISSION_TYPE" length="3" />
+        </property>
+        <property name="sqReceipt" type="int">
+            <column name="SQ_RECEIPT" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="amCommission" type="big_decimal">
+            <column name="AM_COMMISSION" precision="13" />
+        </property>
+        <property name="acCurrency" type="string">
+            <column name="AC_CURRENCY" length="3" />
+        </property>
+        <property name="sqObservation" type="int">
+            <column name="SQ_OBSERVATION" precision="22" scale="0" />
+        </property>
+        <property name="dtValidFrom" type="date">
+            <column name="DT_VALID_FROM" length="7" />
+        </property>
+        <property name="dtValidTo" type="date">
+            <column name="DT_VALID_TO" length="7" />
+        </property>
+        <property name="fgCurrentVersion" type="int">
+            <column name="FG_CURRENT_VERSION" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="acCreationUser" type="string">
+            <column name="AC_CREATION_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsCreation" type="date">
+            <column name="TS_CREATION" not-null="true" />
+        </property>
+        <property name="acLastUpdateUser" type="string">
+            <column name="AC_LAST_UPDATE_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsLastUpdate" type="date">
+            <column name="TS_LAST_UPDATE" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

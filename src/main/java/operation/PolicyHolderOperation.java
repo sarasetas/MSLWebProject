@@ -18,7 +18,7 @@ public class PolicyHolderOperation {
 	private PolicyHolderService policyHolderService;
 	
 	public void insertPolicyHolder(PolicyHolder policyHolder) {
-		if(policyHolder.getPolicyHolderSequence() == 0){
+		if(policyHolder.getSqPolicyHolder() == 0){
 			policyHolderService.getSetNextSequence();
 		}
 		policyHolderService.savePolicyHolder(policyHolder);
@@ -32,14 +32,6 @@ public class PolicyHolderOperation {
 	
 	public void updatePolicyHolder (PolicyHolder policyHolder){
 		policyHolderService.updatePolicyHolder(policyHolder);
-	}
-	
-	public List<PolicyHolder> listPolicyHolders (PolicyHolder policyHolder){
-		
-		List<PolicyHolder> listPolicyHolders = policyHolder.getPartnerName().trim() != null ? 
-				findPolicyHolderByPartnerName(policyHolder.getPartnerName()) : findPolicyHolderByNIF(policyHolder.getNIFCode());
-		
-		return listPolicyHolders;
 	}
 	
 	public int getSetNextSequence(){

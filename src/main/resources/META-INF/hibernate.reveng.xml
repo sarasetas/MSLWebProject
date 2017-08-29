@@ -2,5 +2,12 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-schema="MSL" match-name="T020_POLICY_HOLDER"/>
+ 	<type-mapping>
+ 		 <sql-type jdbc-type="NUMERIC" precision="13" scale="2" hibernate-type="big_decimal" />
+ 		 <sql-type jdbc-type="NUMERIC" not-null="true" hibernate-type="int" />
+ 		 <sql-type jdbc-type="NUMERIC" not-null="false" hibernate-type="int" />
+ 		 
+ 		 <!-- Set hibernate-type "date" for Oracle Timestamps instead of the default type "Serializable" -->
+ 		 <sql-type jdbc-type="OTHER"  hibernate-type="date" />  
+ 	</type-mapping>
 </hibernate-reverse-engineering>

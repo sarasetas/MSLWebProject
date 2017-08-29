@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 4:10:22 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.Balance" table="BALANCE">
+        <composite-id name="id" class="BalanceId">
+            <key-property name="acAccount" type="string">
+                <column name="AC_ACCOUNT" length="10" />
+            </key-property>
+            <key-property name="acBalanceType" type="string">
+                <column name="AC_BALANCE_TYPE" length="3" />
+            </key-property>
+            <key-property name="acBalanceSubtype" type="string">
+                <column name="AC_BALANCE_SUBTYPE" length="3" />
+            </key-property>
+            <key-property name="ydBalance" type="int">
+                <column name="YD_BALANCE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="mdBalance" type="int">
+                <column name="MD_BALANCE" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="amInitialDebit" type="big_decimal">
+            <column name="AM_INITIAL_DEBIT" precision="13" not-null="true" />
+        </property>
+        <property name="amFinalDebit" type="big_decimal">
+            <column name="AM_FINAL_DEBIT" precision="13" not-null="true" />
+        </property>
+        <property name="amMonthDebit" type="big_decimal">
+            <column name="AM_MONTH_DEBIT" precision="13" not-null="true" />
+        </property>
+        <property name="amInitialCredit" type="big_decimal">
+            <column name="AM_INITIAL_CREDIT" precision="13" not-null="true" />
+        </property>
+        <property name="amFinalCredit" type="big_decimal">
+            <column name="AM_FINAL_CREDIT" precision="13" not-null="true" />
+        </property>
+        <property name="amMonthCredit" type="big_decimal">
+            <column name="AM_MONTH_CREDIT" precision="13" not-null="true" />
+        </property>
+        <property name="acCurrency" type="string">
+            <column name="AC_CURRENCY" length="3" not-null="true" />
+        </property>
+        <property name="niTransaction" type="int">
+            <column name="NI_TRANSACTION" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="acBalanceStatus" type="string">
+            <column name="AC_BALANCE_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="acCreationUser" type="string">
+            <column name="AC_CREATION_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsCreation" type="date">
+            <column name="TS_CREATION" not-null="true" />
+        </property>
+        <property name="acLastUpdateUser" type="string">
+            <column name="AC_LAST_UPDATE_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsLastUpdate" type="date">
+            <column name="TS_LAST_UPDATE" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

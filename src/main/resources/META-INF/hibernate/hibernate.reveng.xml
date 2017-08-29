@@ -2,42 +2,5 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-	<table-filter match-schema="MSL" match-name="T020_POLICY_HOLDER" />
-	<table schema="MSL" name="T020_POLICY_HOLDER">
-		<column name="SQ_POLICY_HOLDER"></column>
-		<column name="DS_ADDRESS"></column>
-		<column name="AC_COLLECTION_USER_CODE"></column>
-		<column name="AC_NATIONALITY"></column>
-		<column name="DT_DRIVING_LICENSE_END"></column>
-		<column name="DT_FISCAL_DOCUMENT"></column>
-		<column name="DS_POSTAL_CODE"></column>
-		<column name="AC_FISCAL_DOCUMENT_NUMBER"></column>
-		<column name="AC_DRIVING_LICENSE"></column>
-		<column name="AC_POLICY_NUMBER"></column>
-		<column name="AC_POLICY_HOLDER_TYPE"></column>
-		<column name="AC_FAX_NUMBER"></column>
-		<column name="AC_PROFESSION_CODE"></column>
-		<column name="DT_FISCAL_DOCUMENT_END"></column>
-		<column name="AC_NIB"></column>
-		<column name="AC_PERSONAL_PHONE_NUMBER"></column>
-		<column name="NI_DRIVING_LICENSE"></column>
-		<column name="DS_HISTORY"></column>
-		<column name="DS_PARTNER_NAME"></column>
-		<column name="AC_ORIGIN_GROUP"></column>
-		<column name="AC_PHONE_NUMBER"></column>
-		<column name="AC_EMPLOYEE_CATEGORY"></column>
-		<column name="AC_BANK"></column>
-		<column name="AC_OFFICE"></column>
-		<column name="DT_BIRTH"></column>
-		<column name="DT_UNEMPLOYED"></column>
-		<column name="DS_OBSERVATION"></column>
-		<column name="AC_EMAIL"></column>
-		<column name="DT_DRIVING_LICENSE"></column>
-		<column name="AC_COUNTRY"></column>
-		<column name="AC_MANAGER_USER_CODE"></column>
-		<column name="AC_NIF"></column>
-		<column name="DS_PROFESSION"></column>
-		<column name="AC_FICAL_DOCUMENT"></column>
-		<column name="DS_LOCATION"></column>
-	</table>
+	
 </hibernate-reverse-engineering>

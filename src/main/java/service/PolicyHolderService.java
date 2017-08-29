@@ -63,7 +63,7 @@ public class PolicyHolderService {
 		
 		List<PolicyHolder> listPolicyHolders = policyHolderBo.findByCriteria(crit);
 		
-		return listPolicyHolders.get(0).getPolicyHolderSequence() + 1;
+		return listPolicyHolders.get(0).getSqPolicyHolder() + 1;
 	}
 	
 	 /* Flush and Clear session for batch process

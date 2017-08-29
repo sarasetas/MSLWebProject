@@ -42,7 +42,7 @@ private static final Logger LOG = LoggerFactory.getLogger(MainApp.class);
 */
 		     //receiptOperation.insertReceipt(receipt);
 		     receipt = receiptOperation.listReceipts().get(0);
-		     System.out.println("receipt :" + receipt.getReceiptSequence() + ", " + receipt.getOriginalReceiptNumberCode());
+		     System.out.println("receipt :" + receipt.getSqReceipt() + ", " + receipt.getAcOriginalReceiptNumber());
 		}
 		catch(Exception e){
     		LOG.error(ExceptionUtils.getStackTrace(e));

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 4:10:22 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.AccountSettings" table="ACCOUNT_SETTINGS">
+        <composite-id name="id" class="AccountSettingsId">
+            <key-property name="acAccount" type="string">
+                <column name="AC_ACCOUNT" length="10" />
+            </key-property>
+            <key-property name="sqAccountSettingVersion" type="int">
+                <column name="SQ_ACCOUNT_SETTING_VERSION" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="acAccountType" type="string">
+            <column name="AC_ACCOUNT_TYPE" length="3" not-null="true" />
+        </property>
+        <property name="dsAccount" type="string">
+            <column name="DS_ACCOUNT" length="50" not-null="true" />
+        </property>
+        <property name="acDefaultIban" type="string">
+            <column name="AC_DEFAULT_IBAN" length="34" />
+        </property>
+        <property name="amChequeLimit" type="big_decimal">
+            <column name="AM_CHEQUE_LIMIT" precision="13" />
+        </property>
+        <property name="dtSettingValidFrom" type="date">
+            <column name="DT_SETTING_VALID_FROM" length="7" not-null="true" />
+        </property>
+        <property name="dtSettingValidTo" type="date">
+            <column name="DT_SETTING_VALID_TO" length="7" not-null="true" />
+        </property>
+        <property name="dtValidFrom" type="date">
+            <column name="DT_VALID_FROM" length="7" not-null="true" />
+        </property>
+        <property name="dtValidTo" type="date">
+            <column name="DT_VALID_TO" length="7" not-null="true" />
+        </property>
+        <property name="acCreationUser" type="string">
+            <column name="AC_CREATION_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsCreation" type="date">
+            <column name="TS_CREATION" not-null="true" />
+        </property>
+        <property name="acLastUpdateUser" type="string">
+            <column name="AC_LAST_UPDATE_USER" length="10" not-null="true" />
+        </property>
+        <property name="tsLastUpdate" type="date">
+            <column name="TS_LAST_UPDATE" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

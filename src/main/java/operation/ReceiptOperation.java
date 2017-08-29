@@ -19,7 +19,7 @@ public class ReceiptOperation {
 	private ReceiptService receiptService;
 	
 	public void insertReceipt(Receipt receipt) {
-		if(receipt.getReceiptSequence() == 0){
+		if(receipt.getSqReceipt() == 0){
 			receiptService.getSetNextSequence();
 		}
 		receiptService.saveReceipt(receipt);
