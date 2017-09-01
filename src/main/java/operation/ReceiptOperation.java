@@ -38,7 +38,7 @@ public class ReceiptOperation {
 	public List<Receipt> listReceipts (){
 
 		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(Receipt.class)
-				.addOrder(Order.asc("receiptSequence"));
+				.addOrder(Order.asc("sqReceipt"));
 				
 		List<Receipt> listReceipts = receiptService.findReceiptByCrit(crit);
 		
@@ -69,9 +69,9 @@ public class ReceiptOperation {
 		return receiptService.getSetNextSequence();
 	}
 	
-	public Receipt findReceiptById (int receiptSequence){
+	public Receipt findReceiptById (int sqReceipt){
 		
-		return receiptService.findReceiptById(receiptSequence);
+		return receiptService.findReceiptById(sqReceipt);
 		
 	}
 	

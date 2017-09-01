@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Aug 29, 2017 4:10:22 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated Aug 30, 2017 2:26:50 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="model.Cover" table="COVER">
         <id name="sqCover" type="int">
@@ -27,13 +27,13 @@
             <column name="AC_CREATION_USER" length="10" not-null="true" />
         </property>
         <property name="tsCreation" type="date">
-            <column name="TS_CREATION" not-null="true" />
+            <column name="TS_CREATION" sql-type="TIMESTAMP" not-null="true" />
         </property>
         <property name="acLastUpdateUser" type="string">
             <column name="AC_LAST_UPDATE_USER" length="10" not-null="true" />
         </property>
         <property name="tsLastUpdate" type="date">
-            <column name="TS_LAST_UPDATE" not-null="true" />
+            <column name="TS_LAST_UPDATE" sql-type="TIMESTAMP" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

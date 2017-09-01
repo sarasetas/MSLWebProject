@@ -248,7 +248,7 @@
 					</instructions>
 				</configuration>
 			</plugin>
-			<plugin>
+		 	<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>hibernate3-maven-plugin</artifactId>
 				<version>3.0</version>
@@ -259,7 +259,7 @@
 							outputfilename="persistence.sql" create="true" />
 					</hibernatetool>
 				</configuration>
-			</plugin>	
+			</plugin>	  
 		</plugins>
 	</build>
 

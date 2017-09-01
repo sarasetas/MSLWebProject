@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,8 @@ import operation.ReceiptOperation;
  
 @Controller
 public class ReceiptController {
- 
+	
+	
 	ApplicationContext appContext = new ClassPathXmlApplicationContext("META-INF/spring/config/bean-location.xml");
 	ReceiptOperation receiptOperation = (ReceiptOperation) appContext.getBean("receiptOperation");		    
 
@@ -73,9 +75,9 @@ public class ReceiptController {
 	}	
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editReceipt(@PathVariable("id") int receiptSequence, Model model){
+    public String editReceipt(@PathVariable("id") int sqReceipt, Model model){
 	
-		Receipt receipt = receiptOperation.findReceiptById(receiptSequence);	
+		Receipt receipt = receiptOperation.findReceiptById(sqReceipt);	
 		model.addAttribute("receipt", receipt);
         
         return "editReceipts";
@@ -90,8 +92,8 @@ public class ReceiptController {
     }
 
 	@RequestMapping("/remove/{id}" )
-	public String removeReceipt(@PathVariable("id") int receiptSequence, Model model){		
-		Receipt receipt = receiptOperation.findReceiptById(receiptSequence);
+	public String removeReceipt(@PathVariable("id") int sqReceipt, Model model){		
+		Receipt receipt = receiptOperation.findReceiptById(sqReceipt);
 		receiptOperation.removeReceipt(receipt);	
     
         return "redirect:/searchReceipts";
