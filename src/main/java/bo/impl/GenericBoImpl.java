@@ -43,12 +43,12 @@ public class GenericBoImpl <T, PK extends Serializable> implements GenericBo <T,
 		Date today = new Date(cal11.getTimeInMillis());
 
 		//TODO remove line 
-		newObjProps.setPropertyValue("lastUpdateTimestamp", today);
+		newObjProps.setPropertyValue("tsLastUpdate", today);
 		
-		if(newObjProps.getPropertyType("creationTimestamp") != null) 
+		if(newObjProps.getPropertyType("tsCreation") != null) 
 		{
-			newObjProps.setPropertyValue("creationTimestamp", today);
-			newObjProps.setPropertyValue("lastUpdateTimestamp", today);
+			newObjProps.setPropertyValue("tsCreation", today);
+			newObjProps.setPropertyValue("tsLastUpdate", today);
 		}
 		dao.save(object);	
 	}
@@ -63,7 +63,7 @@ public class GenericBoImpl <T, PK extends Serializable> implements GenericBo <T,
 		//now
 		Date today = new Date(cal11.getTimeInMillis());
 
-		newObjProps.setPropertyValue("lastUpdateTimestamp", today);
+		newObjProps.setPropertyValue("tsLastUpdate", today);
 
 		dao.update(object);	
 	}
@@ -148,11 +148,11 @@ public class GenericBoImpl <T, PK extends Serializable> implements GenericBo <T,
 		//now
 		Date today = new Date(cal11.getTimeInMillis());
 
-		newObjProps.setPropertyValue("lastUpdateTimestamp", today);
+		newObjProps.setPropertyValue("tsLastUpdate", today);
 		
-		if(newObjProps.getPropertyValue("creationTimestamp") == null )
+		if(newObjProps.getPropertyValue("tsCreation") == null )
 		{
-			newObjProps.setPropertyValue("creationTimestamp", today);
+			newObjProps.setPropertyValue("tsCreation", today);
 		}
 		dao.getCurrentSession().saveOrUpdate(object);
 	}
@@ -171,7 +171,7 @@ public class GenericBoImpl <T, PK extends Serializable> implements GenericBo <T,
 		Calendar cal1 = Calendar.getInstance();
 		Date today = new Date(cal1.getTimeInMillis());
 
-		newObjProps.setPropertyValue("lastUpdateTimestamp", today);
+		newObjProps.setPropertyValue("tsLastUpdate", today);
 
 		dao.getCurrentSession().merge(object);
 	}
