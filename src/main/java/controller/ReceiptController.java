@@ -1,5 +1,8 @@
 	package controller;
  
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +51,7 @@ public class ReceiptController {
    }
    
 	
-   @RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public @ResponseBody List<Receipt> cenas(HttpServletRequest request, HttpServletResponse response) 
    		throws Exception {
 	   	
@@ -63,16 +66,30 @@ public class ReceiptController {
 	}
    
 	@RequestMapping(value = "/receipt/add", method = RequestMethod.GET)
-	public String addReceipt(@ModelAttribute("receipt") Receipt receipt, Model model){
-		if (receipt != null && receipt.getSqReceipt() == 0 && receipt.getAcOriginalReceiptNumber() != null) {
-			receipt.setSqReceipt(receiptOperation.getSetNextSequence());
-			receiptOperation.insertReceipt(receipt);
-		}
-	 	model.addAttribute("receipt", new Receipt());
-		model.addAttribute("receiptList", receiptOperation.listReceipts());
+	public String addReceiptGET(@ModelAttribute("receipt") Receipt receipt, Model model){		 
+	 	
+		model.addAttribute("receipt", new Receipt());
 		
 		return "addReceipts";
-	}	
+	}
+	
+	@RequestMapping(value = "/receipt/add", method = RequestMethod.POST)
+	public String addReceiptPOST(@ModelAttribute("receipt") Receipt receipt, Model model){
+		if (receipt != null &&  receipt.getAcOriginalReceiptNumber() != null) {
+			receipt.setSqReceipt(receiptOperation.getSetNextSequence());
+			/** TODO : Remover/subtituir mais tarde por causa do user **/
+			java.util.Date date =  new java.util.Date() ;
+			receipt.setTsCreation(date);
+			receipt.setTsLastUpdate(date);
+			receipt.setAcCreationUser("GohanMF");
+			receipt.setAcLastUpdateUser("GohanMF");
+			
+			receiptOperation.insertReceipt(receipt);
+		}
+	 	model.addAttribute("receipt", new Receipt()); 
+		
+		return "addReceipts";
+	}
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editReceipt(@PathVariable("id") int sqReceipt, Model model){
