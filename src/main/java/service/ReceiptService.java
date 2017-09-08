@@ -59,7 +59,7 @@ public class ReceiptService {
 	public int getSetNextSequence(){
 		
 		DetachedCriteria crit = (DetachedCriteria) DetachedCriteria.forClass(Receipt.class)
-				.addOrder(Order.desc("receiptSequence"));
+				.addOrder(Order.desc("sqReceipt"));
 		
 		List<Receipt> listReceipts = receiptBo.findByCriteria(crit);
 		

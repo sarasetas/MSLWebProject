@@ -37,11 +37,6 @@
 			<attribute name="javadoc_location" value="jar:file:/Users/mkyong/maven/repo/org/springframework/spring-context/3.2.13.RELEASE/spring-context-3.2.13.RELEASE-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/Users/mkyong/maven/repo/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" sourcepath="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-expression/3.2.13.RELEASE/spring-expression-3.2.13.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-expression/3.2.13.RELEASE/spring-expression-3.2.13.RELEASE-sources.jar">
 		<attributes>
@@ -58,7 +53,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -70,5 +65,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="C:/Users/ssetas/workspace/ojdbc14.jar"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
