@@ -29,6 +29,20 @@ public class ReceiptController {
 	ApplicationContext appContext = new ClassPathXmlApplicationContext("META-INF/spring/config/bean-location.xml");
 	ReceiptOperation receiptOperation = (ReceiptOperation) appContext.getBean("receiptOperation");		    
 
+	
+	@RequestMapping(value = "/receipts", method = RequestMethod.GET)
+	public String receipts(@ModelAttribute("receipt") Receipt receipt, Model model) {
+	   	
+	    // 
+	  /*  List <Receipt> listReceipts = receipt.getOriginalReceiptNumberCode() == null ? receiptOperation.listReceipts() 
+	    		: receiptOperation.findReceiptsByOriginalReceiptNumber(receipt.getOriginalReceiptNumberCode());*/
+	    List <Receipt> listReceipts =  receiptOperation.listReceipts();
+	    
+		model.addAttribute("receiptList", listReceipts);
+		return "receipts/receipts";	
+	}
+	
+	
 	@RequestMapping(value = "/searchReceipts", method = RequestMethod.GET)
 	public String searchReceipts(@ModelAttribute("receipt") Receipt receipt, Model model) {
 	   	
