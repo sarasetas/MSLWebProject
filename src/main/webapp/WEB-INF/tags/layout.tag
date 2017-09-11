@@ -8,8 +8,10 @@
  
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/core/css/main.css" var="mainCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<link href="${mainCss}" rel="stylesheet" />
 </head>
  <body>
 	<nav class="navbar navbar-default navbar-inverse">
@@ -58,12 +60,15 @@
 	 
 	<jsp:doBody/>
 	 
-	<spring:url value="/resources/core/css/hello.js" var="coreJs" />
-	<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
+	<spring:url value="/resources/core/js/hello.js" var="coreJs" />
+	<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
+	<spring:url value="/resources/core/js/main.js" var="mainJs" />
 	 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	 <script src="/resources/core/js/receipt.js"></script>
 	<script src="${coreJs}"></script>
 	<script src="${bootstrapJs}"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${mainJs}"></script>
  
 </body>
 </html>

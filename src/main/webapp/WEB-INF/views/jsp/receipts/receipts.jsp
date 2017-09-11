@@ -4,12 +4,16 @@
 
 
 <t:layout>
-	<div class="">
-	 		<div class="row">
+
+<div>
+	<a href="./receipt/add" class="glyphicon glyphicon-plus btn btn-primary" >Add Receipt</a>
+</div>
+	<div class="row">
+	 		<div class="col-xs-4 containerLeft">
 		  <c:choose> 
 		  		<c:when test="${empty receiptList}">No receipts found</c:when>
 		  		<c:otherwise>
-		  			<table class="table table-striped">
+		  			<table class="table table-striped table-pressable">
 				<thead>
 				<tr>
 					<th width="80">ReceiptSequence</th>
@@ -22,17 +26,24 @@
 				<tbody>
 				<c:forEach items="${receiptList}" var="receipt">
 					<tr>
-						<td>${receipt.receiptSequence}</td>
-						<td>${receipt.originalReceiptNumberCode}</td>
-						<td>${receipt.lastUpdateTimestamp}</td>
-						<td><a href="<c:url value='/edit/${receipt.receiptSequence}' />" >Edit</a></td>
-						<td><a href="<c:url value='/remove/${receipt.receiptSequence}' />" >Delete</a></td>
+						<td>${receipt.sqReceipt}</td>
+						<td>${receipt.acOriginalReceiptNumber}</td>
+						<td>${receipt.tsLastUpdate}</td>
+						<td><a href="<c:url value='/edit/${receipt.sqReceipt}' />" >Edit</a></td>
+						<td><a href="<c:url value='/remove/${receipt.sqReceipt}' />" >Delete</a></td>
 					</tr>
 					</c:forEach>
 				</tbody>
 				</table>
 		  		</c:otherwise>
-		  	</c:choose>		
+		  	</c:choose>			  		
+		</div>
+		
+		<div class="col-xs-8 containerRight">
+			<div class="data"> 
+			</div>
 		</div>
 	</div>
+	 
+
  </t:layout>

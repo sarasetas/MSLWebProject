@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +32,7 @@ public class ReceiptController {
 	ReceiptOperation receiptOperation = (ReceiptOperation) appContext.getBean("receiptOperation");		    
 
 	
-	@RequestMapping(value = "/receipts", method = RequestMethod.GET)
+	@RequestMapping(value = "/Receipts", method = RequestMethod.GET)
 	public String receipts(@ModelAttribute("receipt") Receipt receipt, Model model) {
 	   	
 	    // 
@@ -114,6 +116,8 @@ public class ReceiptController {
         return "editReceipts";
     }
 	
+	
+	
 	@RequestMapping(value = "/edit/save/", method = RequestMethod.GET)
     public String editSaveReceipt(@ModelAttribute("receipt") Receipt receipt){
 		
@@ -129,5 +133,29 @@ public class ReceiptController {
     
         return "redirect:/searchReceipts";
     }	
+	
+	
+	/* AJAX SERVICES*/
+	
+	@RequestMapping(value = "Receipts/Edit/{id}", method = RequestMethod.GET)
+    public String editReceiptAjax(@PathVariable("id") int sqReceipt, Model model){
+	
+		Receipt receipt = receiptOperation.findReceiptById(sqReceipt);	
+		model.addAttribute("receipt", receipt);
+        
+        return "receipts/editReceipts";
+    }
+	
+	@RequestMapping(value = "Receipts/Edit/save/", method = RequestMethod.GET)
+    public @ResponseBody Receipt editSaveReceiptAjax(@ModelAttribute("receipt") Receipt receipt){
+		/*Tentar gravar*/
+		/*Verificar se foi bem gravado*/
+		/*se foi bem gravado entao enviar o receipt e o codigo ok*/
+		/*se nao foi bem gravado é necessario ver como se processa a msg para apontar os campos que estao incorrectos*/
+		receiptOperation.updateReceipt(receipt);	
+        return receipt;
+    }
+	
+	
 	
 }	
