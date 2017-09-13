@@ -147,7 +147,7 @@
 							<label for="dtEmission">dtEmission</label>
 						</div>		
 						<div class="col-md-4">
-							<input type="date" class="form-control" id="dtEmission" name="dtEmission" required>
+							<input type="date" class="date-picker-input form-control" id="dtEmission" name="dtEmission" required>
 						</div>
 					 		
 			 			<div class="col-md-offset-4">
@@ -159,7 +159,7 @@
 							<label for="dtDueDate">dtDueDate</label>
 						</div>		
 						<div class="col-md-4">
-							<input type="date" class="form-control" id="dtDueDate" name="dtDueDate" required>
+							<input type="date" class="date-picker-input form-control" id="dtDueDate" name="dtDueDate" required>
 						</div>
 					 		
 			 			<div class="col-md-offset-4">
@@ -171,7 +171,7 @@
 							<label for="dtMaturityDate">dtMaturityDate</label>
 						</div>		
 						<div class="col-md-4">
-							<input type="date" class="form-control" id="dtMaturityDate" name="dtMaturityDate" required>
+							<input type="date" class="date-picker-input form-control" id="dtMaturityDate" name="dtMaturityDate" required>
 						</div>
 					 		
 			 			<div class="col-md-offset-4">

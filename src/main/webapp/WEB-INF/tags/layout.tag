@@ -9,12 +9,12 @@
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
 <spring:url value="/resources/core/css/main.css" var="mainCss" />
-
 <spring:url value="/resources/core/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker3.css" var="datepickerCss" />
 
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 <link href="${mainCss}" rel="stylesheet" />
+<link href="${datepickerCss}" rel="stylesheet" />
 </head>
  <body>
 	<nav class="navbar navbar-default navbar-inverse">

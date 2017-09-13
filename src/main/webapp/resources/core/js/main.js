@@ -42,4 +42,10 @@ $(document).ready(function(){
 			}			
 		})
 	};
+	
+
+    $('.date-picker-input').datepicker({
+        format: "dd/mm/yyyy",
+        language: "pt"
+    });
 });

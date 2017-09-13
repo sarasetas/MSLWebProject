@@ -122,7 +122,7 @@
 						<label for="dtEmission">dtEmission</label>
 					</div>		
 					<div class="col-md-4">
-						<input type="date" class="form-control" id="dtEmission" name="dtEmission" value="${receipt.dtEmission}" required>
+						<input type="date" class="date-picker-input form-control" id="dtEmission" name="dtEmission" value="${receipt.dtEmission}" required>
 					</div>
 				 		
 		 			<div class="col-md-offset-4">
@@ -134,7 +134,7 @@
 						<label for="dtDueDate">dtDueDate</label>
 					</div>		
 					<div class="col-md-4">
-						<input type="date" class="form-control" id="dtDueDate" name="dtDueDate" value="${receipt.dtDueDate}" required>
+						<input type="date" class="date-picker-input form-control" id="dtDueDate" name="dtDueDate" value="${receipt.dtDueDate}" required>
 					</div>
 				 		
 		 			<div class="col-md-offset-4">
@@ -146,7 +146,7 @@
 						<label for="dtMaturityDate">dtMaturityDate</label>
 					</div>		
 					<div class="col-md-4">
-						<input type="date" class="form-control" id="dtMaturityDate" name="dtMaturityDate" value="${receipt.dtMaturityDate}" required>
+						<input type="date" class="date-picker-input form-control" id="dtMaturityDate" name="dtMaturityDate" value="${receipt.dtMaturityDate}" required>
 					</div>
 				 		
 		 			<div class="col-md-offset-4">
