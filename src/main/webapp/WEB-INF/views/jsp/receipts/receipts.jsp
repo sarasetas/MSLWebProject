@@ -6,7 +6,7 @@
 <t:layout>
 
 <div>
-	<a href="./receipt/add" class="glyphicon glyphicon-plus btn btn-primary" >Add Receipt</a>
+	<a href="./Receipt/Add" class="glyphicon glyphicon-plus btn btn-primary" >Add Receipt</a>
 </div>
 	<div class="row">
 	 		<div class="col-xs-12 containerLeft">

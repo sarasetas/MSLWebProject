@@ -81,15 +81,15 @@ public class ReceiptController {
 		return receiptsList;
 	}
    
-	@RequestMapping(value = "/receipt/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/Receipt/Add", method = RequestMethod.GET)
 	public String addReceiptGET(@ModelAttribute("receipt") Receipt receipt, Model model){		 
 	 	
 		model.addAttribute("receipt", new Receipt());
 		
-		return "addReceipts";
+		return "receipts/addReceipts";
 	}
 	
-	@RequestMapping(value = "/receipt/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/Receipt/Add", method = RequestMethod.POST)
 	public String addReceiptPOST(@ModelAttribute("receipt") Receipt receipt, Model model){
 		if (receipt != null &&  receipt.getAcOriginalReceiptNumber() != null) {
 			receipt.setSqReceipt(receiptOperation.getSetNextSequence());
@@ -104,7 +104,7 @@ public class ReceiptController {
 		}
 	 	model.addAttribute("receipt", new Receipt()); 
 		
-		return "addReceipts";
+		return "redirect:/Receipts";
 	}
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
