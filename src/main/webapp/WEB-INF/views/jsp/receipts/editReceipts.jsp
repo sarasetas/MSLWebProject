@@ -7,7 +7,7 @@
  
 	<div class="form-group">
 		<div class="row">
-			<form action="/receipt/save" commandName="receipt" method="post">
+			<form action="Receipts/Edit/save/" commandName="receipt" method="post">
 				
 				<div class="row">
 					<div class="col-md-4">

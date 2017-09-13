@@ -9,7 +9,7 @@
 	<a href="./receipt/add" class="glyphicon glyphicon-plus btn btn-primary" >Add Receipt</a>
 </div>
 	<div class="row">
-	 		<div class="col-xs-4 containerLeft">
+	 		<div class="col-xs-12 containerLeft">
 		  <c:choose> 
 		  		<c:when test="${empty receiptList}">No receipts found</c:when>
 		  		<c:otherwise>

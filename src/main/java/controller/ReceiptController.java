@@ -146,12 +146,20 @@ public class ReceiptController {
         return "receipts/editReceipts";
     }
 	
-	@RequestMapping(value = "Receipts/Edit/save/", method = RequestMethod.GET)
+	@RequestMapping(value = "Receipts/Edit/save/", method = RequestMethod.POST)
     public @ResponseBody Receipt editSaveReceiptAjax(@ModelAttribute("receipt") Receipt receipt){
 		/*Tentar gravar*/
 		/*Verificar se foi bem gravado*/
 		/*se foi bem gravado entao enviar o receipt e o codigo ok*/
 		/*se nao foi bem gravado é necessario ver como se processa a msg para apontar os campos que estao incorrectos*/
+		
+		/*retirar mais tarde e colocar hidden ou talvez no update nao fazer com que ele actualize os campos tscreation e creationuser */
+
+		java.util.Date date =  new java.util.Date() ;
+		receipt.setTsCreation(date);
+		receipt.setTsLastUpdate(date);
+		receipt.setAcCreationUser("GohanMF");
+		receipt.setAcLastUpdateUser("GohanMF");
 		receiptOperation.updateReceipt(receipt);	
         return receipt;
     }

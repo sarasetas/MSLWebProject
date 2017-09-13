@@ -7,8 +7,11 @@
 <title>Page</title>
  
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/core/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
 <spring:url value="/resources/core/css/main.css" var="mainCss" />
+
+<spring:url value="/resources/core/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker3.css" var="datepickerCss" />
+
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 <link href="${mainCss}" rel="stylesheet" />
@@ -60,15 +63,24 @@
 	 
 	<jsp:doBody/>
 	 
+	<spring:url value="/resources/core/js/jquery-3.2.1.js" var="jqueryJs" />	
 	<spring:url value="/resources/core/js/hello.js" var="coreJs" />
-	<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
+	<spring:url value="/resources/core/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 	<spring:url value="/resources/core/js/main.js" var="mainJs" />
+	<spring:url value="/resources/core/js/receipt.js" var="receiptJs" />
+	<spring:url value="/resources/core/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.min.js" var="datepickerJs" />
+	<spring:url value="/resources/core/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.pt.min.js" var="datepickerLocaleJs" />
+	
+	
+	
 	 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	 <script src="/resources/core/js/receipt.js"></script>
+	<script src="${jqueryJs}"></script>
 	<script src="${coreJs}"></script>
 	<script src="${bootstrapJs}"></script>
 	<script src="${mainJs}"></script>
+	<script src="${receiptJs}"></script>
+	<script src="${datepickerJs}"></script>	
+	<script src="${datepickerLocaleJs}"></script>
  
 </body>
 </html>
