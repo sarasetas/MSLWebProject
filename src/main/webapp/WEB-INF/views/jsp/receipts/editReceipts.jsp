@@ -1,3 +1,5 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 	<div class="row">
 		<div class="col-md-4">
@@ -7,7 +9,7 @@
  
 	<div class="form-group">
 		<div class="row">
-			<form action="Receipts/Edit/save/" commandName="receipt" method="post">
+			<form id="SaveEditedReceipts" action="Receipts/Edit/save/" commandName="receipt" method="post">
 				
 				<div class="row">
 					<div class="col-md-4">
@@ -88,10 +90,18 @@
 					<div class="col-md-4">
 						<input type="text" class="form-control" id="acReceiptSubtype" name="acReceiptSubtype" value="${receipt.acReceiptSubtype}" required>
 					</div>
-				 		
-		 			<div class="col-md-offset-4">
-			 
-					</div>	
+			 		<spring:hasBindErrors name="Receipts/Edit/save/">
+    					<c:if test="${errors.hasFieldErrors('acReceiptSubtype')}">
+						    <div class="col-md-4">
+						    	${errors.getFieldError('acReceiptSubtype').defaultMessage} 
+						    </div>
+					  	</c:if>
+					  	<c:if test="${!errors.hasFieldErrors('acReceiptSubtype')}">
+						   	<div class="col-md-offset-4">			 
+							</div>
+					  	</c:if>
+					</spring:hasBindErrors>
+		 				
 			  	</div>
 			  	<div class="row">
 					<div class="col-md-4">
@@ -221,15 +231,23 @@
 						<input type="text" class="form-control" id="acIds" name="acIds" value="${receipt.acIds}" required>
 					</div>
 				 		
-		 			<div class="col-md-offset-4">
-			 
-					</div>	
+		 			<spring:hasBindErrors name="receipt" >
+    					<c:if test="${errors.hasFieldErrors('acIds')}">
+						    <div class="col-md-4">
+						    	${errors.getFieldError('acIds').defaultMessage} 
+						    </div>
+					  	</c:if>
+					  	<c:if test="${!errors.hasFieldErrors('acIds')}">
+						   	<div class="col-md-offset-4">	
+						   				 
+							</div> 
+					  	</c:if>
+					</spring:hasBindErrors>
 			  	</div>
 			    
-			 
 	 			<br>
 				<div class="row col-md-1">
-					<button type="submit" class="btn btn-info">Add</button>
+					<div class="BTNSaveReceipts" class="btn btn-info">Add</div>
 				</div>
 			</form>	
 			<form action="${voltar}">

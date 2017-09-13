@@ -17,6 +17,7 @@ $(document).ready(function(){
 	    $(".data").removeClass('hidden')
 	    editReceiptAjax($(this).find('td').html());
 	    $(this).addClass('active');
+	 
 	  }
 	
 	});
@@ -24,9 +25,8 @@ $(document).ready(function(){
 	
 	
 	
+	
 	function editReceiptAjax(id){
-		
-		
 		$.ajax({
 			type:'GET',
 			url:'Receipts/Edit/'+ id,
@@ -42,6 +42,39 @@ $(document).ready(function(){
 			        format: "dd/mm/yyyy",
 			        language: "pt"
 			    });
+			    
+			    $(".BTNSaveReceipts").click(function(){
+					SaveEditedReceiptAjax($('#SaveEditedReceipts').serialize());
+				});
+			},
+			error: function(response){
+				console.log(response);
+				$(document.body).html(response.responseText);
+			}			
+		})
+	};
+	
+	function SaveEditedReceiptAjax(_data){
+		$.ajax({
+			type:'POST',
+			url:'Receipts/Edit/save/',
+			data: _data,
+			success: function(response){
+				console.log(response); 
+				var receiptList = response;
+				console.log(receiptList);
+				
+				$('.data').html(response);
+				
+
+			    $('.date-picker-input').datepicker({
+			        format: "dd/mm/yyyy",
+			        language: "pt"
+			    });
+			    
+			    $(".BTNSaveReceipts").click(function(){
+					SaveEditedReceiptAjax($('#SaveEditedReceipts').serialize());
+				});
 			},
 			error: function(response){
 				console.log(response);

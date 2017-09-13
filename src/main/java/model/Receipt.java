@@ -4,6 +4,7 @@ package model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+
 import javax.validation.constraints.Size;
 
 /**
@@ -22,7 +23,7 @@ public class Receipt implements java.io.Serializable {
 	private String acOriginalReceiptNumber;
 	private String acReceiptType;
 	
-	@Size(max = 5)
+	@Size(max = 5, message="O Campo só pode conter 1 digito")
 	private String acReceiptSubtype;
 	
 	private int sqPolicyHolder;
@@ -62,7 +63,7 @@ public class Receipt implements java.io.Serializable {
 	private Date dtClaimOpening;
 	private String acClaimDocumentNumber;
 	
-	@Size(max = 1)
+	@Size(max = 1, message="O Campo só pode conter 1 digito")
 	private String acIds;
 	
 	private int fgAggregation;

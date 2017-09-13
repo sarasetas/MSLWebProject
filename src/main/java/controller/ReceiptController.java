@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,11 +16,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import model.Receipt;
 import operation.ReceiptOperation;
@@ -147,21 +150,25 @@ public class ReceiptController {
     }
 	
 	@RequestMapping(value = "Receipts/Edit/save/", method = RequestMethod.POST)
-    public @ResponseBody Receipt editSaveReceiptAjax(@ModelAttribute("receipt") Receipt receipt){
+    public String editSaveReceiptAjax(@Valid @ModelAttribute("receipt") Receipt receipt, BindingResult bindingResult){
 		/*Tentar gravar*/
 		/*Verificar se foi bem gravado*/
 		/*se foi bem gravado entao enviar o receipt e o codigo ok*/
 		/*se nao foi bem gravado é necessario ver como se processa a msg para apontar os campos que estao incorrectos*/
 		
 		/*retirar mais tarde e colocar hidden ou talvez no update nao fazer com que ele actualize os campos tscreation e creationuser */
-
+		if(bindingResult.hasErrors()){
+			return "receipts/editReceipts";
+		}
+		
 		java.util.Date date =  new java.util.Date() ;
 		receipt.setTsCreation(date);
 		receipt.setTsLastUpdate(date);
 		receipt.setAcCreationUser("GohanMF");
 		receipt.setAcLastUpdateUser("GohanMF");
 		receiptOperation.updateReceipt(receipt);	
-        return receipt;
+		
+        return "receipts/editReceipts";
     }
 	
 	
