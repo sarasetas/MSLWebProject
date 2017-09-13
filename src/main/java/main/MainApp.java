@@ -41,6 +41,7 @@ private static final Logger LOG = LoggerFactory.getLogger(MainApp.class);
 		     receipt.setLastUpdateTimestamp(today);
 */
 		     //receiptOperation.insertReceipt(receipt);
+		     receiptOperation.findReceiptById(1);
 		     receipt = receiptOperation.listReceipts().get(0);
 		     System.out.println("receipt :" + receipt.getSqReceipt() + ", " + receipt.getAcOriginalReceiptNumber());
 		}
