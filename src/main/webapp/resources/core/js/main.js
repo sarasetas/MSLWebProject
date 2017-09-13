@@ -8,6 +8,7 @@ $(document).ready(function(){
 	    
 	    $(".containerLeft").removeClass('col-xs-4');
 	    $(".containerLeft").addClass('col-xs-12')
+	    $('.data').html("");
 	
 	  } else {
 	    $(".table-pressable tbody tr").removeClass('active');
@@ -35,6 +36,12 @@ $(document).ready(function(){
 				console.log(receiptList);
 				
 				$('.data').html(response);
+				
+
+			    $('.date-picker-input').datepicker({
+			        format: "dd/mm/yyyy",
+			        language: "pt"
+			    });
 			},
 			error: function(response){
 				console.log(response);
@@ -44,8 +51,5 @@ $(document).ready(function(){
 	};
 	
 
-    $('.date-picker-input').datepicker({
-        format: "dd/mm/yyyy",
-        language: "pt"
-    });
+    
 });
