@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+
+    <!-- Beans for operation classes -->
+    <bean id="receiptOperation"
+          class="operation.ReceiptOperation" autowire="byName"/>
+    <bean id="policyHolderOperation"
+          class="operation.PolicyHolderOperation" autowire="byName"/>
+
+    <!-- Beans for service classes -->
+    <bean id="receiptService"
+          class="service.ReceiptService"
+          autowire="byName">
+        <property name="receiptBo">
+            <bean factory-bean="ReceiptService" factory-method="getReceiptBo" />
+        </property>
+    </bean>
+    <bean id="policyHolderService"
+          class="service.PolicyHolderService"
+          autowire="byName">
+        <property name="policyHolderBo">
+            <bean factory-bean="PersistenceService" factory-method="getPolicyHolderBo" />
+        </property>
+    </bean>
+
+    <!-- Beans for Bo entities -->
+    <bean id="receiptBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="receiptDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Receipt</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="receiptStatusBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="receiptStatusDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.ReceiptStatus</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="receiptCollectionBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="receiptCollectionDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.ReceiptCollection</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="coverBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="coverDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Cover</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="commissionBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="commissionDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Commission</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="policyHolderBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="policyHolderDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.PolicyHolder</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="chequeBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="chequeDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Cheque</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="balanceBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="balanceDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Balance</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="transactionDetailBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="transactionDetailDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.TransactionDetail</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="accountSettingsBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="accountSettingsDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.AccountSettings</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="referenceDataBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="referenceDataDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.ReferenceData</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="observationBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="observationDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Observation</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="operationBo"
+          class="bo.impl.GenericBoImpl">
+        <property name="dao">
+            <bean id="operationDao"
+                  class="dao.impl.GenericDaoImpl">
+                <constructor-arg>
+                    <value type="java.lang.Class">model.Operation</value>
+                </constructor-arg>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </property>
+    </bean>
+
+
+
+    <!-- *All OSGI exposed services should be wired here. @id - ID used to reference
+        the bean in the bundle-context-os\gi.xml file @class - The class that implements
+        the exposed service *All id values care case-sensitive and should be camel
+        case -->
+
+    <bean id="PersistenceService"
+          class="persistence.service.impl.PersistenceServiceImpl" />
+    <bean id="ReceiptService"
+            class="service.ReceiptService"/>
+
+</beans>
